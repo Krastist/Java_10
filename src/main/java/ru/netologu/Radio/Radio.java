@@ -1,8 +1,7 @@
 package ru.netologu.Radio;
 
 public class Radio {
-    public int currentChannel;  // Начинаем расчеты каналов
-
+    public int currentChannel;
     public int getCurrentChannel() {
         return currentChannel;
     }
@@ -22,24 +21,22 @@ public class Radio {
     }
 
     public void nextChannel() {
-        if (currentChannel < 9) {
+        if (currentChannel != 9) {
             currentChannel = currentChannel + 1;
-        }
-        if (currentChannel == 9) {
+        } else {
             currentChannel = 0;
         }
     }
 
     public void prevChannel() {
-        if (currentChannel > 0) {
+        if (currentChannel != 0) {
             currentChannel = currentChannel - 1;
-        }
-        if (currentChannel == 0) {
+        } else {
             currentChannel = 9;
         }
     }
 
-    public int currentVolume;  // Начинаем расчеты громкости
+    public int currentVolume;
 
     public void setToMaxVolume() {
         currentVolume = 100;
