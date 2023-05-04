@@ -1,9 +1,15 @@
 package ru.netologu.Radio;
 
 public class Radio {
-    public int currentChannel;
+    private int currentChannel;
+    private int currentVolume;
+
     public int getCurrentChannel() {
+
         return currentChannel;
+    }
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
     public void setCurrentChannel(int newCurrentChannel) {
@@ -18,6 +24,20 @@ public class Radio {
 
     public void setToMaxChannel() {
         currentChannel = 9;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    public void setToMaxVolume() {
+        currentVolume = 100;
     }
 
     public void nextChannel() {
@@ -36,25 +56,6 @@ public class Radio {
         }
     }
 
-    public int currentVolume;
-
-    public void setToMaxVolume() {
-        currentVolume = 100;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
-    }
     public void increaseVolume() {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
