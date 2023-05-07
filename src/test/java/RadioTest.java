@@ -9,7 +9,7 @@ public class RadioTest {
     public void shouldSetCurrentChannel() {
         Radio rad = new Radio();
 
-        rad.setCurrentChannel(10);
+        rad.setCurrentChannel(-1);
 
         int expected = 0;
         int actual = rad.getCurrentChannel();
@@ -19,11 +19,11 @@ public class RadioTest {
 
     @Test
     public void setToMaxChannel() {
-        Radio rad = new Radio();
+        Radio rad = new Radio(20);
 
         rad.setToMaxChannel();
 
-        int expected = 9;
+        int expected = 19;
         int actual = rad.getCurrentChannel();
 
         Assertions.assertEquals(expected, actual);
@@ -33,7 +33,7 @@ public class RadioTest {
     public void shouldNotSetChannelAboveMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentChannel(-1);
+        rad.setCurrentChannel(10);
 
         int expected = 0;
         int actual = rad.getCurrentChannel();
@@ -69,12 +69,12 @@ public class RadioTest {
 
     @Test
     public void checkPrevChannel() {
-        Radio rad = new Radio();
+        Radio rad = new Radio(20);
 
-        rad.setCurrentChannel(6);
+        rad.setCurrentChannel(15);
         rad.prevChannel();
 
-        int expected = 5;
+        int expected = 14;
         int actual = rad.getCurrentChannel();
 
         Assertions.assertEquals(expected, actual);
@@ -123,7 +123,7 @@ public class RadioTest {
 
         rad.setCurrentVolume(120);
 
-        int expectad = 0;
+        int expectad = 100;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expectad, actual);
@@ -180,4 +180,11 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+//    @Test
+//    public void checkQuantityChannel() {
+//        Radio rad = new Radio();
+//
+//
+//    }
 }
