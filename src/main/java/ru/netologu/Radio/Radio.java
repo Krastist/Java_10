@@ -10,7 +10,7 @@ public class Radio {
     private int currentVolume;
 
     public Radio(int quantityChannel) {
-        this.quantityChannel = getQuantityChannel();
+        this.quantityChannel = quantityChannel;
         this.maxChannnel = quantityChannel - 1;
     }
 
